@@ -158,6 +158,7 @@ app.get("*", (req, res) => {
 });
 
 // --- START SERVER ---
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Learning for Life server running on http://localhost:${PORT}`);
+  console.log(`Learning for Life server running on port ${PORT}`);
 });
