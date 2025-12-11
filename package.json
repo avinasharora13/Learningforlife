@@ -1,0 +1,14 @@
+{
+  "name": "learning-for-life-site",
+  "version": "1.0.0",
+  "description": "Learning for Life Studio - luxury learning website with simple backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.0",
+    "express": "^4.21.0",
+    "nodemailer": "^6.9.15"
+  }
+}

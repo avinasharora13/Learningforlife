@@ -1,0 +1,2273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learning for Life | International Admissions & Study Abroad Consultancy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      /* Dark, cinematic palette */
+      --bg-page: #050816;
+      --bg-card: #0b1020;
+      --bg-dark: #02010c;
+      --bg-soft: #101524;
+
+      --ink-main: #f5f5f7;
+      --ink-soft: #c7c9d7;
+      --ink-muted: #9ba1b5;
+
+      --accent-gold: #f5c77c;
+      --accent-gold-soft: #f9dba3;
+      --accent-ink: #3ab4ff; /* electric blue accent */
+
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-pill: 999px;
+
+      --shadow-soft: 0 26px 80px rgba(0, 0, 0, 0.65);
+      --shadow-card: 0 18px 45px rgba(0, 0, 0, 0.5);
+
+      --max-width: 1120px;
+      --transition-fast: 160ms ease-out;
+      --transition-med: 220ms ease-out;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #101632 0, #050816 45%, #02010c 100%);
+      color: var(--ink-main);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fdfdfd;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .frame {
+      max-width: calc(var(--max-width) + 4rem);
+      margin: 0 auto;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #141a35 0, #060a1b 45%, #03030c 100%);
+      border-left: 1px solid rgba(120, 130, 170, 0.5);
+      border-right: 1px solid rgba(120, 130, 170, 0.5);
+      box-shadow:
+        0 0 0 1px rgba(70, 80, 120, 0.4),
+        0 40px 110px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .shell {
+        padding: 0 1.4rem;
+      }
+    }
+
+    /* Announcement */
+
+    .announce {
+      background: radial-gradient(circle at left, #3ab4ff 0, #050816 45%, #02010c 100%);
+      color: #eaf5ff;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      border-bottom: 1px solid rgba(122, 194, 255, 0.4);
+    }
+
+    .announce-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.55rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .announce-pill {
+      padding: 0.16rem 0.8rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(14, 33, 71, 0.8);
+      font-size: 0.7rem;
+      background: rgba(4, 11, 32, 0.9);
+    }
+
+    @media (max-width: 900px) {
+      .announce-inner {
+        padding-inline: 1.4rem;
+        font-size: 0.7rem;
+        text-align: center;
+      }
+    }
+
+    /* Header */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(22px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 8, 30, 0.98),
+        rgba(5, 8, 30, 0.94)
+      );
+      border-bottom: 1px solid rgba(88, 120, 185, 0.55);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.85rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .header-inner {
+        padding-inline: 1.4rem;
+      }
+    }
+
+    .brand-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .brand-name {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+    }
+
+    .brand-name span {
+      color: var(--accent-ink);
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 0.15rem;
+      color: var(--ink-muted);
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-ink), var(--accent-gold));
+      transition: width var(--transition-fast);
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav-pill {
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(99, 132, 210, 0.7);
+      background: rgba(8, 15, 40, 0.95);
+      color: var(--ink-muted);
+      cursor: pointer;
+    }
+
+    .nav-pill-primary {
+      background: radial-gradient(circle at top left, var(--accent-ink), #0066ff);
+      border-color: transparent;
+      color: #fdfdfd;
+      box-shadow: 0 14px 40px rgba(0, 102, 255, 0.6);
+    }
+
+    .nav-pill-primary:hover {
+      background: radial-gradient(circle at top left, #4fd3ff, #0d6eff);
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(96, 128, 210, 0.8);
+      padding: 0.3rem 0.9rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      background: rgba(8, 14, 36, 0.95);
+      color: var(--ink-muted);
+      cursor: pointer;
+    }
+
+    @media (max-width: 1024px) {
+      nav {
+        position: absolute;
+        inset: 60px 1.4rem auto 1.4rem;
+        padding: 1rem 1.1rem 1.1rem;
+        border-radius: 18px;
+        background: radial-gradient(circle at top, #151b3b 0, #050816 55%);
+        border: 1px solid rgba(91, 117, 191, 0.9);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.9rem;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition:
+          opacity var(--transition-fast),
+          transform var(--transition-fast);
+      }
+
+      nav.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-right {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    /* Sections */
+
+    main section {
+      padding: 3.4rem 0;
+      position: relative;
+    }
+
+    main section + section {
+      border-top: 1px solid rgba(65, 86, 143, 0.7);
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-width: 32rem;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--ink-muted);
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      margin: 0;
+    }
+
+    .section-sub {
+      margin: 0;
+      font-size: 0.96rem;
+      color: var(--ink-soft);
+    }
+
+    /* Hero */
+
+    .hero {
+      padding-top: 3rem;
+      padding-bottom: 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.6rem;
+      align-items: stretch;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--ink-muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      margin: 0 0 1rem;
+      font-size: clamp(2.2rem, 3vw + 1.4rem, 3.2rem);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      line-height: 1.17;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #4fd3ff, var(--accent-gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-body {
+      max-width: 33rem;
+      font-size: 0.98rem;
+      color: var(--ink-soft);
+      margin-bottom: 1.7rem;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.7rem;
+    }
+
+    .hero-pill {
+      padding: 0.3rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(106, 137, 224, 0.7);
+      background: rgba(10, 15, 40, 0.9);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .hero-note {
+      flex-basis: 100%;
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      margin-top: 0.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      text-transform: uppercase;
+      letter-spacing: 0.19em;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background: none;
+      transition:
+        background var(--transition-med),
+        color var(--transition-med),
+        border-color var(--transition-med),
+        box-shadow var(--transition-med),
+        transform var(--transition-med);
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at top left, var(--accent-ink), #0066ff);
+      border-color: transparent;
+      color: #fdfdfd;
+      box-shadow: 0 22px 70px rgba(0, 102, 255, 0.7);
+    }
+
+    .btn-primary:hover {
+      background: radial-gradient(circle at top left, #4fd3ff, #0d6eff);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: rgba(118, 152, 240, 0.7);
+      color: var(--ink-soft);
+      background: rgba(10, 14, 36, 0.9);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-ink);
+      color: #e8f0ff;
+      background: rgba(9, 19, 60, 0.95);
+      box-shadow: 0 18px 50px rgba(29, 74, 180, 0.7);
+    }
+
+    .hero-panel {
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at top left, #273b7a, #05071a 55%, #070315 100%);
+      color: #f6eee0;
+      padding: 1.8rem 1.6rem 1.9rem;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 360px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at top, rgba(72, 135, 255, 0.35), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(247, 204, 123, 0.32), transparent 65%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-panel-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-panel-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .chip {
+      padding: 0.22rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(225, 238, 255, 0.85);
+      background: rgba(6, 10, 32, 0.9);
+      font-size: 0.72rem;
+    }
+
+    .hero-panel-title {
+      margin-top: 1.15rem;
+      font-size: 1.02rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .hero-panel-body {
+      margin-top: 0.5rem;
+      font-size: 0.88rem;
+      color: #dde4ff;
+      max-width: 24rem;
+    }
+
+    .hero-panel-stats {
+      margin-top: 1.3rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 560px) {
+      .hero-panel-stats {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-stat {
+      border-radius: 16px;
+      border: 1px solid rgba(224, 235, 255, 0.5);
+      background: rgba(3, 6, 22, 0.92);
+      padding: 0.7rem 0.85rem;
+    }
+
+    .hero-stat-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #cbd7ff;
+      margin-bottom: 0.1rem;
+    }
+
+    .hero-stat-value {
+      font-size: 0.9rem;
+      color: #f5f5ff;
+    }
+
+    /* Split grid */
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 2.4rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 960px) {
+      .split-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .about-text p {
+      font-size: 0.96rem;
+      color: var(--ink-soft);
+      margin-top: 0;
+      margin-bottom: 0.9rem;
+    }
+
+    .about-highlights {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+    }
+
+    .about-highlights span {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .about-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(102, 131, 210, 0.9);
+      background: radial-gradient(circle at top, #151c3b 0, #060a1b 55%);
+      padding: 1.1rem 1.1rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      box-shadow: var(--shadow-card);
+    }
+
+    .about-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #ffffff;
+    }
+
+    .about-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.7rem;
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    .about-chip {
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(119, 149, 230, 0.9);
+      background: rgba(11, 18, 42, 0.95);
+    }
+
+    /* Audience cards */
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 980px) {
+      .audience-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .audience-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .audience-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(102, 131, 210, 0.9);
+      background: rgba(7, 10, 30, 0.96);
+      padding: 1rem 1rem 1.2rem;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      box-shadow: var(--shadow-card);
+    }
+
+    .audience-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--ink-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .audience-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      color: #ffffff;
+    }
+
+    /* Cards grid */
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    @media (max-width: 980px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(102, 131, 210, 0.9);
+      background: rgba(8, 12, 32, 0.97);
+      padding: 1.1rem 1.1rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      box-shadow: var(--shadow-card);
+    }
+
+    .card-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .card-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.3rem;
+      color: #ffffff;
+    }
+
+    .card-meta {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-pill {
+      margin-top: 0.6rem;
+      display: inline-flex;
+      padding: 0.22rem 0.75rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(102, 131, 210, 0.9);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--ink-muted);
+    }
+
+    /* Journeys / phases */
+
+    .journeys {
+      background: radial-gradient(circle at top, #131c3f 0, #050816 55%);
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 960px) {
+      .journey-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .timeline {
+      border-left: 1px solid rgba(86, 118, 204, 0.8);
+      padding-left: 1.3rem;
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .step {
+      position: relative;
+    }
+
+    .step::before {
+      content: "";
+      position: absolute;
+      left: -1.35rem;
+      top: 0.35rem;
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 999px;
+      border: 2px solid #050816;
+      background: radial-gradient(circle, var(--accent-ink), var(--accent-gold));
+      box-shadow: 0 0 0 5px rgba(77, 188, 255, 0.45);
+    }
+
+    .step-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+      color: #ffffff;
+    }
+
+    .step-desc {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+    }
+
+    .journey-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(102, 131, 210, 0.9);
+      background: rgba(6, 10, 28, 0.98);
+      padding: 1.1rem 1.1rem 1.2rem;
+      font-size: 0.9rem;
+      box-shadow: var(--shadow-card);
+      color: var(--ink-soft);
+    }
+
+    /* Universities NEW layout */
+
+    #universities {
+      background: radial-gradient(circle at top, #111a3c 0, #050816 50%);
+    }
+
+    .uni-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 960px) {
+      .uni-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .uni-intro {
+      font-size: 0.94rem;
+      color: var(--ink-soft);
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .uni-intro-highlight {
+      border-radius: var(--radius-lg);
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(101, 144, 233, 0.9);
+      background: rgba(10, 19, 52, 0.96);
+      font-size: 0.9rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .uni-groups {
+      display: grid;
+      gap: 1.3rem;
+    }
+
+    .uni-group {
+      border-radius: 20px;
+      border: 1px solid rgba(109, 146, 230, 0.9);
+      background: rgba(6, 11, 32, 0.98);
+      padding: 0.95rem 0.95rem 1.05rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .uni-group-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .uni-group-title {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.19em;
+      color: var(--ink-muted);
+    }
+
+    .uni-group-tagline {
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+    }
+
+    .uni-cards {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.5rem;
+    }
+
+    .uni-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 14px;
+      border: 1px solid rgba(100, 139, 234, 0.7);
+      background: radial-gradient(circle at top left, #151f4b 0, #050816 60%);
+      font-size: 0.86rem;
+      color: #e7edff;
+      transition:
+        transform var(--transition-med),
+        box-shadow var(--transition-med),
+        border-color var(--transition-med),
+        background var(--transition-med);
+    }
+
+    .uni-main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .uni-name {
+      font-weight: 500;
+    }
+
+    .uni-location {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    .uni-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-gold-soft);
+    }
+
+    .uni-card::after {
+      content: "↗";
+      font-size: 0.9rem;
+      color: var(--accent-ink);
+      flex-shrink: 0;
+    }
+
+    .uni-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-ink);
+      background: radial-gradient(circle at top left, #283b80 0, #050816 60%);
+      box-shadow: 0 18px 55px rgba(38, 111, 232, 0.7);
+    }
+
+    /* FAQ */
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 960px) {
+      .faq-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .faq-item {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(102, 131, 210, 0.9);
+      background: rgba(7, 10, 30, 0.98);
+      padding: 0.85rem 0.9rem;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      box-shadow: var(--shadow-card);
+    }
+
+    .faq-q {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: #ffffff;
+    }
+
+    .faq-a {
+      font-size: 0.88rem;
+    }
+
+    /* Contact */
+
+    .contact-section {
+      padding-bottom: 4.2rem;
+    }
+
+    .contact-card {
+      border-radius: 28px;
+      background: radial-gradient(circle at top left, #1c285c 0, #050816 50%);
+      color: #fdf7ee;
+      padding: 2.1rem 1.9rem 2.2rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.9rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(112, 147, 231, 0.9);
+    }
+
+    @media (max-width: 960px) {
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .contact-title {
+      font-size: 1.4rem;
+      margin: 0 0 0.7rem;
+    }
+
+    .contact-text {
+      font-size: 0.94rem;
+      color: #e4e7ff;
+      max-width: 30rem;
+    }
+
+    .contact-note {
+      margin-top: 0.7rem;
+      font-size: 0.8rem;
+      color: #c7cff5;
+    }
+
+    .cta-form {
+      font-size: 0.86rem;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    @media (max-width: 600px) {
+      .cta-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    label {
+      display: block;
+      font-size: 0.78rem;
+      margin-bottom: 0.22rem;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0.55rem 0.6rem;
+      border-radius: 12px;
+      border: 1px solid rgba(173, 197, 255, 0.9);
+      background: rgba(4, 7, 28, 0.94);
+      color: #f5f7ff;
+      font-family: inherit;
+      font-size: 0.86rem;
+      outline: none;
+      transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast);
+    }
+
+    input::placeholder {
+      color: #8f9acb;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #4fd3ff;
+      box-shadow: 0 0 0 1px rgba(79, 211, 255, 0.8);
+      background: #050827;
+    }
+
+    .btn-cta {
+      background: radial-gradient(circle at top left, var(--accent-ink), #00a2ff);
+      border-color: transparent;
+      color: #fdfdfd;
+      margin-top: 0.25rem;
+      box-shadow: 0 22px 70px rgba(0, 140, 255, 0.8);
+    }
+
+    .btn-cta:hover {
+      background: radial-gradient(circle at top left, #4fd3ff, #0d6eff);
+      box-shadow: 0 26px 80px rgba(0, 140, 255, 0.9);
+      transform: translateY(-2px);
+    }
+
+    #contact-status {
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      color: #d2defc;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid rgba(88, 120, 185, 0.7);
+      background: #02010c;
+      color: #a9b0d5;
+      padding: 1.8rem 0 1.6rem;
+      font-size: 0.8rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .footer-inner {
+        padding-inline: 1.4rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      color: #8f96c0;
+    }
+
+    .footer-links a:hover {
+      color: #e4ebff;
+    }
+
+    /* Reveal on scroll */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 650ms ease-out,
+        transform 650ms ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="announce">
+      <div class="announce-inner">
+        <span class="announce-pill">Enrollment guide</span>
+        <span>International higher education programs · Complete Process & Direct Plan</span>
+      </div>
+    </div>
+
+    <header>
+      <div class="header-inner">
+        <div class="brand-block">
+          <div class="brand-name">Learning <span>for Life</span></div>
+          <div class="brand-sub">International Admissions & Study Abroad · Madrid · Online</div>
+        </div>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          Menu
+        </button>
+
+        <nav id="main-nav">
+          <a href="#hero">Overview</a>
+          <a href="#programs">Programs</a>
+          <a href="#process">Process & fees</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#universities">Universities</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-right">
+          <div class="nav-pill">Student area</div>
+          <div class="nav-pill nav-pill-primary" data-scroll="#contact">
+            Start Phase 1
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="hero" class="hero">
+        <div class="shell hero-grid reveal">
+          <div>
+            <div class="hero-eyebrow">Enrollment guide · Service conditions</div>
+            <h1 class="hero-title">
+              From first idea<br />
+              <span>to enrollment abroad</span>
+            </h1>
+            <p class="hero-body">
+              Learning for Life accompanies you through the complete process of studying
+              a higher education program abroad: analysis of your profile, proposal of
+              options, management of applications, post-admission support and visa
+              guidance when needed.
+            </p>
+
+            <div class="hero-pills">
+              <div class="hero-pill">Bachelor’s & Top-Up Degrees</div>
+              <div class="hero-pill">Foundations & Pathways</div>
+              <div class="hero-pill">Pre-Masters · Masters · Doctorates</div>
+            </div>
+
+            <div class="hero-actions">
+              <button class="btn btn-primary" data-scroll="#contact">
+                Start the process
+              </button>
+              <button class="btn btn-outline" data-scroll="#process">
+                View phases & fees
+              </button>
+              <p class="hero-note">
+                This page condenses the Enrollment Guide and Summary of Service
+                Conditions so that students and families can understand how we work
+                before signing and paying.
+              </p>
+            </div>
+          </div>
+
+          <aside class="hero-panel">
+            <div class="hero-panel-inner">
+              <div class="hero-panel-top">
+                <span class="chip">Complete Process</span>
+                <span>3 phases · step-by-step</span>
+              </div>
+              <div class="hero-panel-title">A structured, flexible service</div>
+              <div class="hero-panel-body">
+                You do not commit to the full amount from day one. Each phase has its
+                own payment and scope. You can stop after any phase if you wish to, and
+                you only pay for work already performed.
+              </div>
+
+              <div class="hero-panel-stats">
+                <div class="hero-stat">
+                  <div class="hero-stat-label">Programs covered</div>
+                  <div class="hero-stat-value">
+                    Degrees, Top-Ups, Foundations, Pathways, Pre-Masters, Masters, PhD.
+                  </div>
+                </div>
+                <div class="hero-stat">
+                  <div class="hero-stat-label">Modalities</div>
+                  <div class="hero-stat-value">Complete Process · Direct Plan</div>
+                </div>
+                <div class="hero-stat">
+                  <div class="hero-stat-label">Destinations</div>
+                  <div class="hero-stat-value">EU & non-EU (including Medicine & Health)</div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Programs -->
+      <section id="programs">
+        <div class="shell split-grid reveal">
+          <div>
+            <div class="section-header">
+              <div class="section-kicker">Scope of the service</div>
+              <h2 class="section-title">What we help you enroll in</h2>
+              <p class="section-sub">
+                Our advisory and management service covers the main types of higher
+                education programs abroad, whether you are starting from zero or already
+                have a clear destination in mind.
+              </p>
+            </div>
+            <div class="about-text">
+              <p>
+                The Enrollment Guide explains which programs we work with and how we
+                adapt the route according to your academic background, language level
+                and objectives. You receive support at each phase, without paying for
+                services you do not need.
+              </p>
+              <div class="about-highlights">
+                <div><span>Access routes and advanced degrees.</span> We can guide you
+                  both when you still need to meet entry requirements and when you
+                  already qualify for direct admission.</div>
+                <div><span>EU and non-EU destinations.</span> We distinguish between
+                  programs within the European Union and those outside the EU or in
+                  Health fields, since fees and procedures are different.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-card">
+            <div class="about-card-title">Programs included</div>
+            <p>
+              · University Degrees and Top-Up Degrees.<br />
+              · Foundation and Pathway programs for students who still need academic or
+              language requirements.<br />
+              · Pre-Masters for those who require preparation before a Master’s degree.<br />
+              · Master’s and Doctoral degrees at international universities.
+            </p>
+            <div class="about-chip-row">
+              <span class="about-chip">Bachelor · Top-Up</span>
+              <span class="about-chip">Foundation · Pathway</span>
+              <span class="about-chip">Pre-Master</span>
+              <span class="about-chip">Master · Doctorate</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Documentation -->
+      <section id="documentation">
+        <div class="shell reveal">
+          <div class="section-header">
+            <div class="section-kicker">Start of process</div>
+            <h2 class="section-title">Documentation you will need</h2>
+            <p class="section-sub">
+              All documentation is sent in PDF format and properly labeled. Having it
+              ready from the beginning makes the process faster and avoids delays.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-kicker">All students</div>
+              <div class="card-title">Base documentation</div>
+              <p>
+                · General Conditions document of the program, signed.<br />
+                · Valid ID card or passport (scanned).<br />
+                · Passport-style photo in digital format.<br />
+                · Academic transcripts from the last two school years.<br />
+                · Proof of first payment for the chosen phase.<br />
+                · Language certificate (if you already have one).<br />
+                · European Health Insurance Card when the destination is in the EU.
+              </p>
+              <div class="card-pill">Sent to students@learningforlife.es</div>
+            </article>
+
+            <article class="card">
+              <div class="card-kicker">If you are a minor</div>
+              <div class="card-title">Additional requirements</div>
+              <p>
+                · ID or passport of both parents/guardians.<br />
+                · Family Book (Libro de familia).<br />
+                · Power of attorney letter signed by parents/guardians (template
+                provided).<br />
+                · Official travel authorization issued by Police, notary or City
+                Council.
+              </p>
+              <div class="card-pill">We provide templates and guidance</div>
+            </article>
+
+            <article class="card">
+              <div class="card-kicker">Practical detail</div>
+              <div class="card-title">How to label your files</div>
+              <p>
+                To keep everything organized, documents are named with a clear
+                structure. For example:<br />
+                <strong>“Passport_NameSurname.pdf”</strong> or
+                <strong>“Transcript2023_NameSurname.pdf”</strong>.<br />
+                This allows the team to handle your case quickly and reduces the chance
+                of errors.
+              </p>
+              <div class="card-pill">Simple file naming · Clear traceability</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Audience -->
+      <section id="audience">
+        <div class="shell reveal">
+          <div class="section-header">
+            <div class="section-kicker">Profiles</div>
+            <h2 class="section-title">Students and families we usually help</h2>
+            <p class="section-sub">
+              The framework is the same, but each case is personal. We adapt the
+              Complete Process or Direct Plan according to your starting point.
+            </p>
+          </div>
+
+          <div class="audience-grid">
+            <article class="audience-card">
+              <div class="audience-label">Exploring options</div>
+              <div class="audience-title">Students starting from scratch</div>
+              <p>
+                You want to study abroad but are still not sure about country,
+                university or program. You need realistic options, a clear explanation
+                of requirements and an honest view of your chances.
+              </p>
+            </article>
+
+            <article class="audience-card">
+              <div class="audience-label">Focused path</div>
+              <div class="audience-title">Students with a shortlist</div>
+              <p>
+                You already have several universities or programs in mind and want help
+                to confirm requirements, organize documentation and manage applications
+                without missing deadlines.
+              </p>
+            </article>
+
+            <article class="audience-card">
+              <div class="audience-label">Direct Plan</div>
+              <div class="audience-title">Students with a clear target</div>
+              <p>
+                You know exactly where you want to apply from the beginning. In this
+                case, we skip Phase 1 and focus on verifying requirements, managing the
+                application and supporting you after admission.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process & fees -->
+      <section id="process" class="journeys">
+        <div class="shell journey-grid reveal">
+          <div>
+            <div class="section-header">
+              <div class="section-kicker">How it works</div>
+              <h2 class="section-title">Two modalities, three phases</h2>
+              <p class="section-sub">
+                You can follow the Complete Process (from first analysis to post-admission)
+                or, if you already know your destination, start directly with the Direct Plan.
+              </p>
+            </div>
+
+            <div class="timeline">
+              <div class="step">
+                <div class="step-title">Phase 0 – Informative session (free)</div>
+                <div class="step-desc">
+                  Before starting, we hold a free session to explain the program, answer
+                  questions and confirm whether your profile fits international options.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-title">Phase 1 – Start of the process</div>
+                <div class="step-desc">
+                  Signature of the contract, payment of the first fee and analysis of
+                  your academic record, language level, interests and goals. At the end
+                  we deliver a personalized dossier with recommended programs and
+                  universities.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-title">Phase 2 – Application management</div>
+                <div class="step-desc">
+                  Preparation and submission of applications to up to three institutions:
+                  forms, motivation letters, documents and administrative follow-up. We
+                  track deadlines and university responses with you.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-title">Phase 3 – Post-admission and visa support</div>
+                <div class="step-desc">
+                  Once admitted, we help with place confirmation, guidance on
+                  accommodation, and orientation for the visa process if required. There
+                  is also the option to add full visa handling as an extra service.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="journey-card">
+            <div class="about-card-title">Complete Process vs Direct Plan</div>
+            <p>
+              <strong>Complete Process.</strong> Recommended if you want to start from
+              scratch and receive support from the first analysis to enrollment.
+              Includes Phases 1, 2 and 3, each with its own payment and scope.
+            </p>
+            <p>
+              <strong>Direct Plan.</strong> Designed for students who already know
+              which universities and programs they want. There is no Phase 1: we verify
+              requirements, manage applications (up to three, or a reduced rate for a
+              single application) and accompany you after admission.
+            </p>
+            <p>
+              Prices change depending on whether the destination is within the European
+              Union or outside the EU / in Health fields (Medicine, Dentistry,
+              Veterinary). Each table of the guide details the amounts per phase and
+              modality and always includes VAT.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fees summary -->
+      <section id="fees">
+        <div class="shell reveal">
+          <div class="section-header">
+            <div class="section-kicker">Investment</div>
+            <h2 class="section-title">Summary of fees by phase</h2>
+            <p class="section-sub">
+              Here is a simplified view of the fee structure so that you can quickly
+              understand the order of magnitude before reading the full tables.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-kicker">Complete Process</div>
+              <div class="card-title">Typical ranges by phase</div>
+              <p>
+                · Phase 1: from around €600 (EU programs) to €800 (outside EU or Health).<br />
+                · Phase 2: from around €600–€800 for Foundations/Pathways to €800–€1,100
+                for Bachelor, Master or Doctorate depending on destination.<br />
+                · Phase 3: from around €400 (EU) to €600 (outside EU or Health).
+              </p>
+              <p>
+                You always know in advance what each phase covers and when it is due.
+              </p>
+              <div class="card-pill">All amounts include VAT</div>
+            </article>
+
+            <article class="card">
+              <div class="card-kicker">Direct Plan</div>
+              <div class="card-title">When you already have target programs</div>
+              <p>
+                For the Direct Plan, Phase 1 disappears and the work is concentrated in
+                Phases 2 and 3. The total depends on destination and whether you apply
+                to one institution or up to three.
+              </p>
+              <p>
+                Example (approximate):<br />
+                · EU universities · 1 application → about €900 total.<br />
+                · EU universities · up to 3 applications → about €1,200 total.<br />
+                Outside the EU / Health fields have higher corresponding totals.
+              </p>
+              <div class="card-pill">Designed for focused applications</div>
+            </article>
+
+            <article class="card">
+              <div class="card-kicker">Supplements</div>
+              <div class="card-title">Extras you can add</div>
+              <p>
+                · Extra application (4th or more): from about €350 (EU) to €500 (outside
+                EU or Health) per additional institution.<br />
+                · Recognition / homologation of previous studies: about €850 (fees,
+                translations and external costs not included).<br />
+                · Visa handling: around €600 plus official visa fees, if you contract
+                full management.
+              </p>
+              <div class="card-pill">Elite & Elite Plus supplements for top universities</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Elite -->
+      <section id="elite">
+        <div class="shell reveal">
+          <div class="section-header">
+            <div class="section-kicker">Selective universities</div>
+            <h2 class="section-title">Elite and Elite Plus applications</h2>
+            <p class="section-sub">
+              Some universities and programs require an extra level of preparation,
+              essays and interview work. For them, the guide defines specific
+              supplements.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-kicker">Elite</div>
+              <div class="card-title">Top-100 and highly selective programs</div>
+              <p>
+                Applied when the university is in the Top-100 of rankings such as QS,
+                THE or ARWU, or when the program has extra competitive requirements
+                (specific tests, intensive essays or interviews).
+              </p>
+              <p>
+                Includes additional reviews of your main essay, a complete check of the
+                application portal before submission and more personalized support.
+              </p>
+              <div class="card-pill">Supplement: around +€600 per application</div>
+            </article>
+
+            <article class="card">
+              <div class="card-kicker">Elite Plus</div>
+              <div class="card-title">Oxbridge, Ivy+ and similar</div>
+              <p>
+                For universities such as Oxford, Cambridge, Ivy League schools, MIT or
+                Stanford, where admissions are extremely selective and workload per
+                application is much higher.
+              </p>
+              <p>
+                The Elite Plus supplement adds more essay work, strategic planning,
+                mock interviews and close follow-up across all phases.
+              </p>
+              <div class="card-pill">Supplement: around +€900 per application</div>
+            </article>
+
+            <article class="card">
+              <div class="card-kicker">How we apply them</div>
+              <div class="card-title">Transparency from the beginning</div>
+              <p>
+                In the options list you receive at the end of Phase 1, any university or
+                program that requires Elite or Elite Plus will be clearly identified.
+                Supplements are always added on top of the base service and applied per
+                application.
+              </p>
+              <p>
+                If you add a 4th application that is also Elite, both supplements
+                (4th-application + Elite/Elite Plus) are applied according to the guide.
+              </p>
+              <div class="card-pill">Clear labeling · No surprises</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Timeline -->
+      <section id="timeline">
+        <div class="shell journey-grid reveal">
+          <div>
+            <div class="section-header">
+              <div class="section-kicker">Planning</div>
+              <h2 class="section-title">Typical timeline from first call to departure</h2>
+              <p class="section-sub">
+                Exact dates vary by country and program, but this is a realistic
+                reference for how the process unfolds when we work together.
+              </p>
+            </div>
+
+            <div class="timeline">
+              <div class="step">
+                <div class="step-title">Week 0 – Informative session</div>
+                <div class="step-desc">
+                  First free meeting to understand your interests, academic goals and
+                  preferences. We explain how the service works and confirm if it suits
+                  your case.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-title">Weeks 1–3 – Phase 1</div>
+                <div class="step-desc">
+                  We collect documentation, analyze your profile and prepare a dossier
+                  with recommended options, including descriptions, approximate costs,
+                  admission requirements and key dates. You choose which paths to follow.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-title">Weeks 4–7 – Phase 2</div>
+                <div class="step-desc">
+                  Preparation and submission of applications: forms, motivation letters
+                  or personal statements, CV, references and specific requirements for
+                  each institution.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-title">After submission – University responses</div>
+                <div class="step-desc">
+                  Response times vary widely. Some universities reply in a few weeks;
+                  others take several months, and some may ask for additional documents,
+                  tests or interviews.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-title">8–12 weeks before travel – Visa & preparations</div>
+                <div class="step-desc">
+                  Once admitted, we recommend starting the visa process at least two or
+                  three months before departure (often more). We help you organize visa,
+                  accommodation, insurance and flights.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-title">1–4 weeks before traveling – Final checks</div>
+                <div class="step-desc">
+                  We ensure that enrollment, visa, insurance and accommodation are all
+                  confirmed. You receive guidance on arrival, academic induction and
+                  first steps at the destination.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="journey-card">
+            <div class="about-card-title">Timing tips</div>
+            <p>
+              · If your destination requires a visa, plan with 6–8 months of lead time
+              whenever possible.<br />
+              · For Elite universities, add 4–6 extra weeks for essays and interviews.<br />
+              · The slowest part is usually collecting documents, so it helps to start
+              early.<br />
+              · Avoid paying non-refundable flights until you have admission (and visa,
+              where necessary).
+            </p>
+            <p>
+              The guide also includes approximate key dates by destination (UK,
+              Netherlands, EU, Canada/USA, etc.) so you can see if you are early, on
+              time or late relative to typical windows.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Insurance -->
+      <section id="insurance">
+        <div class="shell reveal">
+          <div class="section-header">
+            <div class="section-kicker">Security & protection</div>
+            <h2 class="section-title">Insurance and cancellation options</h2>
+            <p class="section-sub">
+              Studying abroad is a major investment. The guide explains which insurances
+              are mandatory, which are optional and which risks they cover.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-kicker">Medical & travel</div>
+              <div class="card-title">Health, assistance and liability</div>
+              <p>
+                For non-EU destinations, medical and travel insurance with specific
+                coverage is generally mandatory. Within the EU, it is strongly
+                recommended and sometimes required by universities.
+              </p>
+              <p>
+                Typical coverage includes international medical assistance,
+                hospitalization and emergencies, repatriation, liability and accident
+                insurance. We can provide quotes adapted to your destination and length
+                of stay.
+              </p>
+              <div class="card-pill">Included as part of your personalized quote</div>
+            </article>
+
+            <article class="card">
+              <div class="card-kicker">Optional cancellation</div>
+              <div class="card-title">Standard and Premium options</div>
+              <p>
+                Cancellation insurance is optional but especially useful for long
+                programs or those requiring a visa. It covers justified causes (serious
+                illness, accident, death of a family member, official summons, etc.)
+                depending on the chosen modality.
+              </p>
+              <p>
+                The guide explains different insured sums, prices and the main
+                differences between Standard and Premium: flexibility, higher insured
+                amounts and suitability for long stays.
+              </p>
+              <div class="card-pill">To be requested before the first payment</div>
+            </article>
+
+            <article class="card">
+              <div class="card-kicker">What is not included</div>
+              <div class="card-title">Limits of the service</div>
+              <p>
+                Our fees do not include university fees (applications, deposits,
+                enrollment), sworn translations, official exams (IELTS/TOEFL, SAT/ACT,
+                TSA/LNAT/UCAT/BMAT, etc.), visa fees, external teachers or mentors,
+                courier costs or other external administrative procedures.
+              </p>
+              <p>
+                These costs, when necessary, are quoted separately or paid directly to
+                the institution or provider.
+              </p>
+              <div class="card-pill">Clear separation between our fees and external costs</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Universities: new attractive layout with links -->
+      <section id="universities">
+        <div class="shell reveal">
+          <div class="section-header">
+            <div class="section-kicker">Global pathways</div>
+            <h2 class="section-title">Universities and business schools our students explore</h2>
+            <p class="section-sub">
+              Below is a curated selection of universities and schools that frequently
+              appear in our students’ plans and in MiM/Master guides. Each card opens
+              the institution’s official site in a new tab.
+            </p>
+          </div>
+
+          <div class="uni-layout">
+            <!-- Left side: intro -->
+            <div class="uni-intro">
+              <p>
+                We do not sell guaranteed places and we do not work on commission from
+                universities. Our job is to help you understand which options make sense
+                for your profile and then build strong, honest applications.
+              </p>
+              <div class="uni-intro-highlight">
+                <strong>How to read this section:</strong><br />
+                · Grouped by region so you see patterns and combinations.<br />
+                · Mix of highly selective schools and strong, realistic options.<br />
+                · Use it as inspiration; your final list is designed in Phase 1.
+              </div>
+              <p>
+                You can combine universities across regions, for example: Spain
+                (IE/ESADE), France (HEC/ESSEC) and UK (LBS/LSE), or build a path that
+                includes Asia or North America.
+              </p>
+            </div>
+
+            <!-- Right side: groups and clickable cards -->
+            <div class="uni-groups">
+              <!-- Spain -->
+              <div class="uni-group">
+                <div class="uni-group-header">
+                  <div class="uni-group-title">Spain</div>
+                  <div class="uni-group-tagline">International private universities & business schools</div>
+                </div>
+                <div class="uni-cards">
+                  <a class="uni-card" href="https://www.ie.edu" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">IE University / IE Business School</div>
+                      <div class="uni-location">Madrid & Segovia · Spain</div>
+                    </div>
+                    <div class="uni-tag">MiM · Business · Tech</div>
+                  </a>
+                  <a class="uni-card" href="https://www.esade.edu" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">ESADE Business School</div>
+                      <div class="uni-location">Barcelona · Spain</div>
+                    </div>
+                    <div class="uni-tag">MiM · Law · MBA</div>
+                  </a>
+                  <a class="uni-card" href="https://media.iese.edu" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">IESE Business School</div>
+                      <div class="uni-location">Barcelona & Madrid · Spain</div>
+                    </div>
+                    <div class="uni-tag">MBA · Executive</div>
+                  </a>
+                  <a class="uni-card" href="https://www.eada.edu" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">EADA Business School</div>
+                      <div class="uni-location">Barcelona · Spain</div>
+                    </div>
+                    <div class="uni-tag">MiM · Specialized masters</div>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Europe -->
+              <div class="uni-group">
+                <div class="uni-group-header">
+                  <div class="uni-group-title">Europe</div>
+                  <div class="uni-group-tagline">France, Italy, multi-campus schools</div>
+                </div>
+                <div class="uni-cards">
+                  <a class="uni-card" href="https://www.hec.edu" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">HEC Paris</div>
+                      <div class="uni-location">Paris · France</div>
+                    </div>
+                    <div class="uni-tag">Elite MiM · MIF</div>
+                  </a>
+                  <a class="uni-card" href="https://www.essec.edu" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">ESSEC Business School</div>
+                      <div class="uni-location">France · Singapore</div>
+                    </div>
+                    <div class="uni-tag">MiM · Global tracks</div>
+                  </a>
+                  <a class="uni-card" href="https://www.escp.eu" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">ESCP Business School</div>
+                      <div class="uni-location">Multi-campus · Europe</div>
+                    </div>
+                    <div class="uni-tag">MiM · Multi-country</div>
+                  </a>
+                  <a class="uni-card" href="https://www.unibocconi.eu" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">Università Bocconi</div>
+                      <div class="uni-location">Milan · Italy</div>
+                    </div>
+                    <div class="uni-tag">Business · Finance</div>
+                  </a>
+                </div>
+              </div>
+
+              <!-- UK -->
+              <div class="uni-group">
+                <div class="uni-group-header">
+                  <div class="uni-group-title">United Kingdom</div>
+                  <div class="uni-group-tagline">London and beyond</div>
+                </div>
+                <div class="uni-cards">
+                  <a class="uni-card" href="https://www.london.edu" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">London Business School</div>
+                      <div class="uni-location">London · UK</div>
+                    </div>
+                    <div class="uni-tag">MiM · MBA · MIF</div>
+                  </a>
+                  <a class="uni-card" href="https://www.lse.ac.uk" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">London School of Economics (LSE)</div>
+                      <div class="uni-location">London · UK</div>
+                    </div>
+                    <div class="uni-tag">Economics · Management</div>
+                  </a>
+                  <a class="uni-card" href="https://www.imperial.ac.uk/business-school" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">Imperial College Business School</div>
+                      <div class="uni-location">London · UK</div>
+                    </div>
+                    <div class="uni-tag">Analytics · Innovation</div>
+                  </a>
+                  <a class="uni-card" href="https://www.wbs.ac.uk" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">Warwick Business School</div>
+                      <div class="uni-location">Coventry & London · UK</div>
+                    </div>
+                    <div class="uni-tag">MiM · Management</div>
+                  </a>
+                </div>
+              </div>
+
+              <!-- North America -->
+              <div class="uni-group">
+                <div class="uni-group-header">
+                  <div class="uni-group-title">North America</div>
+                  <div class="uni-group-tagline">USA and Canada</div>
+                </div>
+                <div class="uni-cards">
+                  <a class="uni-card" href="https://www.kellogg.northwestern.edu" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">Kellogg School of Management</div>
+                      <div class="uni-location">Northwestern University · USA</div>
+                    </div>
+                    <div class="uni-tag">MBA · Management</div>
+                  </a>
+                  <a class="uni-card" href="https://business.cornell.edu" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">Cornell SC Johnson College of Business</div>
+                      <div class="uni-location">Cornell University · USA</div>
+                    </div>
+                    <div class="uni-tag">Business · Hospitality</div>
+                  </a>
+                  <a class="uni-card" href="https://mcgill.ca/desautels" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">Desautels Faculty of Management</div>
+                      <div class="uni-location">McGill University · Canada</div>
+                    </div>
+                    <div class="uni-tag">Global management</div>
+                  </a>
+                  <a class="uni-card" href="https://www.ivey.uwo.ca" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">Ivey Business School</div>
+                      <div class="uni-location">Western University · Canada</div>
+                    </div>
+                    <div class="uni-tag">Case-based programs</div>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Asia -->
+              <div class="uni-group">
+                <div class="uni-group-header">
+                  <div class="uni-group-title">Asia</div>
+                  <div class="uni-group-tagline">Global hubs in the East</div>
+                </div>
+                <div class="uni-cards">
+                  <a class="uni-card" href="https://bschool.nus.edu.sg" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">NUS Business School</div>
+                      <div class="uni-location">National University of Singapore</div>
+                    </div>
+                    <div class="uni-tag">Asia’s global hub</div>
+                  </a>
+                  <a class="uni-card" href="https://www.ntu.edu.sg/business" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">Nanyang Business School</div>
+                      <div class="uni-location">Nanyang Technological University · Singapore</div>
+                    </div>
+                    <div class="uni-tag">Business · Tech focus</div>
+                  </a>
+                  <a class="uni-card" href="https://www.hkubs.hku.hk" target="_blank" rel="noopener noreferrer">
+                    <div class="uni-main">
+                      <div class="uni-name">HKU Business School</div>
+                      <div class="uni-location">University of Hong Kong</div>
+                    </div>
+                    <div class="uni-tag">Finance · Asia focus</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq">
+        <div class="shell faq-grid reveal">
+          <div>
+            <div class="section-header">
+              <div class="section-kicker">Questions</div>
+              <h2 class="section-title">Key points from the conditions</h2>
+              <p class="section-sub">
+                The Enrollment Guide includes a detailed FAQ. Here are some of the
+                questions that most families and students ask before starting.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-q">What does “EU” and “outside the EU” mean in the fees?</div>
+              <div class="faq-a">
+                For our service, “EU” refers to countries in the European Union. The
+                United Kingdom and other non-member countries are considered outside the
+                EU. If the applicant does not have an EU nationality, some fee rules may
+                not apply in the same way.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">What exactly is a “standard application”?</div>
+              <div class="faq-a">
+                A standard application is a direct application to a university or
+                program without the intensive requirements of Elite or Elite Plus cases
+                (for example, multiple essays, specific tests or mandatory interviews).
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">If I apply through a centralized portal, does it count as several applications?</div>
+              <div class="faq-a">
+                No. If a centralized portal allows you to choose several options within
+                the same platform, it counts as a single application for service
+                purposes. We will ask you to prioritize your choices.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">When will I know if my case is Elite or Elite Plus?</div>
+              <div class="faq-a">
+                At the end of Phase 1 you receive a list of recommended options. In that
+                document we clearly mark which universities or programs require an Elite
+                or Elite Plus supplement, so you can decide with full information.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">How and when are the phases paid?</div>
+              <div class="faq-a">
+                You pay by stages: Phase 1, then Phase 2, then Phase 3. You only move on
+                to the next phase if you wish to. Each payment corresponds to services
+                that are clearly defined and documented in the guide and contract.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">Are phases or external fees refundable?</div>
+              <div class="faq-a">
+                Work already performed in a phase is not refundable. University fees,
+                visa fees and other external costs are governed by each institution’s
+                policy; we will explain their conditions before you pay them.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="contact-section">
+        <div class="shell reveal">
+          <div class="contact-card">
+            <div>
+              <div class="section-kicker">Next step</div>
+              <h2 class="contact-title">Activate Phase 1 and book your first appointment</h2>
+              <p class="contact-text">
+                To formally start the process, you complete the enrollment form, make
+                the payment for the corresponding phase and send us the receipt by
+                email. From there we will confirm your place and share the work
+                calendar.
+              </p>
+              <p class="contact-note">
+                Practical details such as bank account, payment concepts, links to the
+                online form and appointment booking appear in the final section of the
+                Enrollment Guide and in your confirmation email.
+              </p>
+              <p class="contact-note">
+                Email: students@learningforlife.es · Tel/WhatsApp: +34 655 934 742 ·
+                Mon–Fri, 9:00–13:30 and 16:00–19:00 (CET).
+              </p>
+            </div>
+
+            <form class="cta-form" id="contact-form">
+              <div class="cta-row">
+                <div>
+                  <label for="name">Name *</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Your full name"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="email">Email *</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="cta-row">
+                <div>
+                  <label for="role">You are *</label>
+                  <select id="role" name="role" required>
+                    <option value="">Select...</option>
+                    <option>Student</option>
+                    <option>Parent</option>
+                    <option>Professional</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="focus">Main interest *</label>
+                  <select id="focus" name="focus" required>
+                    <option value="">Select...</option>
+                    <option>Complete Process (from scratch)</option>
+                    <option>Direct Plan (I already know my programs)</option>
+                    <option>Visa & pre-departure only</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="note">Short note</label>
+                <input
+                  id="note"
+                  name="note"
+                  type="text"
+                  placeholder="In one or two sentences, tell us your situation and destination ideas."
+                />
+              </div>
+
+              <div>
+                <button type="submit" class="btn btn-cta">
+                  Send my details
+                </button>
+                <p id="contact-status"></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© 2025 Learning for Life Education S.L. International Admissions & Study Abroad.</div>
+        <div class="footer-links">
+          <a href="#hero">Overview</a>
+          <a href="#process">Process</a>
+          <a href="#universities">Universities</a>
+          <a href="#contact">Contact</a>
+          <span>Madrid · Online</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("main-nav");
+
+    if (navToggle && nav) {
+      navToggle.addEventListener("click", () => {
+        nav.classList.toggle("open");
+      });
+    }
+
+    // Smooth scrolling
+    function smoothScrollTo(selector) {
+      const target = document.querySelector(selector);
+      if (!target) return;
+      const headerOffset = 80;
+      const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+
+    document.querySelectorAll("[data-scroll]").forEach((el) => {
+      el.addEventListener("click", () => {
+        const target = el.getAttribute("data-scroll");
+        if (!target) return;
+        smoothScrollTo(target);
+        if (nav) nav.classList.remove("open");
+      });
+    });
+
+    document.querySelectorAll("nav a[href^='#']").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const target = link.getAttribute("href");
+        if (!target) return;
+        smoothScrollTo(target);
+        if (nav) nav.classList.remove("open");
+      });
+    });
+
+    // Contact form submission (backend already in place)
+    const contactForm = document.getElementById("contact-form");
+    const statusEl = document.getElementById("contact-status");
+
+    if (contactForm && statusEl) {
+      contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        statusEl.textContent = "Sending...";
+        const formData = new FormData(contactForm);
+        const payload = {
+          name: formData.get("name"),
+          email: formData.get("email"),
+          role: formData.get("role"),
+          focus: formData.get("focus"),
+          note: formData.get("note"),
+        };
+
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          const data = await res.json();
+          if (data.ok) {
+            statusEl.textContent = "Thank you. We will reply shortly.";
+            contactForm.reset();
+          } else {
+            statusEl.textContent =
+              data.message || "There was a problem. Please try again.";
+          }
+        } catch (err) {
+          statusEl.textContent = "Network error. Please try again.";
+        }
+      });
+    }
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      revealEls.forEach((el) => observer.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add("visible"));
+    }
+  </script>
+</body>
+</html>
